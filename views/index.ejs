@@ -1,0 +1,34 @@
+<%- include("layout/header") %>
+
+<h2 class="mb-4">Hospital Management Dashboard</h2>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="card text-white bg-success mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Patients</h5>
+        <a href="/patients" class="btn btn-light">Manage Patients</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card text-white bg-info mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Doctors</h5>
+        <a href="/doctors" class="btn btn-light">Manage Doctors</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card text-white bg-warning mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Appointments</h5>
+        <a href="/appointments" class="btn btn-light">Manage Appointments</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("layout/footer") %>

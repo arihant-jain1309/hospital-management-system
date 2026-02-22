@@ -1,0 +1,42 @@
+<%- include("layout/header") %>
+
+<h2 class="mb-4">Manage Doctors</h2>
+
+<div class="card mb-4">
+  <div class="card-body">
+    <form action="/doctors/add" method="POST">
+      <div class="row">
+        <div class="col-md-5">
+          <input type="text" name="name" class="form-control" placeholder="Doctor Name" required>
+        </div>
+        <div class="col-md-5">
+          <input type="text" name="specialization" class="form-control" placeholder="Specialization" required>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-primary w-100">Add</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<table class="table table-bordered table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Specialization</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% doctors.forEach(doctor => { %>
+      <tr>
+        <td><%= doctor.id %></td>
+        <td><%= doctor.name %></td>
+        <td><%= doctor.specialization %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<%- include("layout/footer") %>

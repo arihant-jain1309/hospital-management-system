@@ -1,0 +1,60 @@
+<%- include("layout/header") %>
+
+<h2 class="mb-4">Manage Appointments</h2>
+
+<div class="card mb-4">
+  <div class="card-body">
+    <form action="/appointments/add" method="POST">
+      <div class="row">
+        <div class="col-md-4">
+          <select name="patient_id" class="form-control" required>
+            <option value="">Select Patient</option>
+            <% patients.forEach(patient => { %>
+              <option value="<%= patient.id %>"><%= patient.name %></option>
+            <% }) %>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <select name="doctor_id" class="form-control" required>
+            <option value="">Select Doctor</option>
+            <% doctors.forEach(doctor => { %>
+              <option value="<%= doctor.id %>"><%= doctor.name %></option>
+            <% }) %>
+          </select>
+        </div>
+
+        <div class="col-md-3">
+          <input type="date" name="appointment_date" class="form-control" required>
+        </div>
+
+        <div class="col-md-1">
+          <button class="btn btn-warning w-100">Add</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<table class="table table-bordered table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>ID</th>
+      <th>Patient</th>
+      <th>Doctor</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% appointments.forEach(app => { %>
+      <tr>
+        <td><%= app.id %></td>
+        <td><%= app.patient_name %></td>
+        <td><%= app.doctor_name %></td>
+        <td><%= app.appointment_date %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<%- include("layout/footer") %>
